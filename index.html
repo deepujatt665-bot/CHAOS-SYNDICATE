@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CHAOS SYNDICATE</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================= BOOT SCREEN ================= -->
+  <div id="bootScreen">
+    <div class="boot-logo">CHAOS SYNDICATE</div>
+    <div class="boot-text">INITIALIZING INNER CIRCLE...</div>
+    <div class="boot-bar">
+      <div id="bootProgress"></div>
+    </div>
+  </div>
+
+
+  <!-- ================= BACKGROUND ================= -->
+  <canvas id="chaosCanvas"></canvas>
+
+  <div class="scanlines"></div>
+
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+
+    <div class="brand">
+      <span class="brand-symbol">⚡</span>
+      CHAOS SYNDICATE
+    </div>
+
+    <nav>
+      <button onclick="showSection('home')">HOME</button>
+      <button onclick="showSection('crew')">CREW</button>
+      <button onclick="showSection('rooms')">ROOMS</button>
+      <button onclick="showSection('games')">GAMES</button>
+      <button onclick="showSection('battle')">BATTLE</button>
+      <button onclick="showSection('fm')">FM</button>
+      <button onclick="showSection('owner')">ROOT</button>
+    </nav>
+
+  </header>
+
+
+  <!-- ================= MAIN ================= -->
+  <main>
+
+
+    <!-- ================= HOME ================= -->
+    <section id="home" class="page active">
+
+      <div class="hero">
+
+        <div class="system-label">
+          SYSTEM ONLINE // INNER CIRCLE DETECTED
+        </div>
+
+        <h1>CHAOS<br><span>SYNDICATE</span></h1>
+
+        <p class="tagline">
+          NO RULES. JUST THE INNER CIRCLE. ⚡
+        </p>
+
+        <div class="hero-buttons">
+          <button class="primary-btn" onclick="showSection('crew')">
+            ENTER THE SYNDICATE
+          </button>
+
+          <button class="ghost-btn" onclick="activateChaos()">
+            ACTIVATE CHAOS
+          </button>
+        </div>
+
+      </div>
+
+
+      <!-- Dashboard -->
+      <div class="dashboard">
+
+        <div class="stat-card">
+          <span>CHAOS LEVEL</span>
+          <strong id="chaosLevel">001</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>CREW ONLINE</span>
+          <strong id="crewOnline">5</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>BATTLES</span>
+          <strong id="battleCount">0</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>SECRETS</span>
+          <strong id="secretCount">0</strong>
+        </div>
+
+      </div>
+
+
+      <!-- System message -->
+      <div class="system-box">
+
+        <div class="system-title">
+          ▣ LIVE SYSTEM FEED
+        </div>
+
+        <p id="systemMessage">
+          SYSTEM READY. WELCOME, CHAOS QUEEN.
+        </p>
+
+      </div>
+
+
+      <!-- Quick access -->
+      <div class="quick-grid">
+
+        <button onclick="showSection('chat')">
+          💬
+          <span>CREW CHAT</span>
+        </button>
+
+        <button onclick="showSection('wall')">
+          🧱
+          <span>CREW WALL</span>
+        </button>
+
+        <button onclick="showSection('games')">
+          🎮
+          <span>GAME ZONE</span>
+        </button>
+
+        <button onclick="showSection('battle')">
+          ⚔️
+          <span>BATTLE ROOM</span>
+        </button>
+
+        <button onclick="showSection('challenge')">
+          🧨
+          <span>CHALLENGE</span>
+        </button>
+
+        <button onclick="showSection('fm')">
+          🎵
+          <span>CREW FM</span>
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= CREW ================= -->
+    <section id="crew" class="page">
+
+      <div class="section-heading">
+        <div class="eyebrow">INNER CIRCLE // 001</div>
+        <h2>THE CREW</h2>
+        <p>Five people. One completely chaotic system.</p>
+      </div>
+
+
+      <div class="crew-grid">
+
+
+        <!-- DEEPIKA -->
+        <article class="crew-card deepika">
+
+          <div class="pfp pfp-deepika"></div>
+
+          <div class="crew-number">ROOT-001</div>
+
+          <h3>Deepika</h3>
+
+          <div class="nickname">DΞΞP</div>
+
+          <div class="role">CHAOS QUEEN 👑</div>
+
+          <p>
+            Owner of the entire chaos system.
+            Reality officially has no control here.
+          </p>
+
+          <div class="mini-stats">
+            <span>XP <b>999</b></span>
+            <span>CHAOS <b>MAX</b></span>
+          </div>
+
+          <button onclick="openProfile('deepika')">
+            OPEN PROFILE
+          </button>
+
+        </article>
+
+
+        <!-- YASHIKA -->
+        <article class="crew-card yashika">
+
+          <div class="pfp pfp-yashika"></div>
+
+          <div class="crew-number">PARTNER-002</div>
+
+          <h3>Yashika</h3>
+
+          <div class="nickname">YASH</div>
+
+          <div class="role">CRIME PARTNER 🧨</div>
+
+          <p>
+            The person most likely to turn
+            a normal plan into absolute chaos.
+          </p>
+
+          <div class="mini-stats">
+            <span>XP <b>750</b></span>
+            <span>CHAOS <b>HIGH</b></span>
+          </div>
+
+          <button onclick="openProfile('yashika')">
+            OPEN PROFILE
+          </button>
+
+        </article>
+
+
+        <!-- MARIYA -->
+        <article class="crew-card mariya">
+
+          <div class="pfp pfp-mariya"></div>
+
+          <div class="crew-number">MARIYA-003</div>
+
+          <h3>Mariya</h3>
+
+          <div class="nickname">MARI</div>
+
+          <div class="role">BFF 🦋</div>
+
+          <p>
+            Brain of the group until somebody
+            activates random chaos mode.
+          </p>
+
+          <div class="mini-stats">
+            <span>XP <b>820</b></span>
+            <span>CHAOS <b>HIGH</b></span>
+          </div>
+
+          <button onclick="openProfile('mariya')">
+            OPEN PROFILE
+          </button>
+
+        </article>
+
+
+        <!-- BRO -->
+        <article class="crew-card bro">
+
+          <div class="pfp pfp-bro"></div>
+
+          <div class="crew-number">BRO-004</div>
+
+          <h3>Bro</h3>
+
+          <div class="nickname">BRO</div>
+
+          <div class="role">BRO 🛠️</div>
+
+          <p>
+            System tank. Professional protector
+            of the inner circle.
+          </p>
+
+          <div class="mini-stats">
+            <span>XP <b>690</b></span>
+            <span>CHAOS <b>MED</b></span>
+          </div>
+
+          <button onclick="openProfile('bro')">
+            OPEN PROFILE
+          </button>
+
+        </article>
+
+
+        <!-- DORA -->
+        <article class="crew-card dora">
+
+          <div class="pfp pfp-dora"></div>
+
+          <div class="crew-number">DORA-005</div>
+
+          <h3>Dora</h3>
+
+          <div class="nickname">DORA</div>
+
+          <div class="role">BESTIE 🐻</div>
+
+          <p>
+            Nobody knows what Dora will do next.
+            Including Dora.
+          </p>
+
+          <div class="mini-stats">
+            <span>XP <b>777</b></span>
+            <span>CHAOS <b>???</b></span>
+          </div>
+
+          <button onclick="openProfile('dora')">
+            OPEN PROFILE
+          </button>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= ROOMS ================= -->
+    <section id="rooms" class="page">
+
+      <div class="section-heading">
+        <div class="eyebrow">ACCESS TERMINAL</div>
+        <h2>THE ROOMS</h2>
+        <p>Every room has its own chaos.</p>
+      </div>
+
+
+      <div class="room-grid">
+
+        <button class="room-card" onclick="showSection('chat')">
+          <div class="room-icon">💬</div>
+          <h3>CREW CHAT</h3>
+          <span>CHAT.EXE</span>
+        </button>
+
+        <button class="room-card" onclick="showSection('wall')">
+          <div class="room-icon">🧱</div>
+          <h3>CREW WALL</h3>
+          <span>POST.EXE</span>
+        </button>
+
+        <button class="room-card" onclick="showSection('games')">
+          <div class="room-icon">🎮</div>
+          <h3>GAME ZONE</h3>
+          <span>GAME.EXE</span>
+        </button>
+
+        <button class="room-card" onclick="showSection('battle')">
+          <div class="room-icon">⚔️</div>
+          <h3>CHAOS ARENA</h3>
+          <span>BATTLE.EXE</span>
+        </button>
+
+        <button class="room-card" onclick="showSection('challenge')">
+          <div class="room-icon">🧨</div>
+          <h3>CHALLENGE ARENA</h3>
+          <span>CHALLENGE.EXE</span>
+        </button>
+
+        <button class="room-card" onclick="showSection('voice')">
+          <div class="room-icon">🎙️</div>
+          <h3>VOICE.EXE</h3>
+          <span>VOICE ROOM</span>
+        </button>
+
+        <button class="room-card" onclick="showSection('fm')">
+          <div class="room-icon">🎵</div>
+          <h3>CREW FM</h3>
+          <span>MUSIC SYSTEM</span>
+        </button>
+
+        <button class="room-card" onclick="showSection('camera')">
+          <div class="room-icon">📷</div>
+          <h3>CAM.EXE</h3>
+          <span>FILTER LAB</span>
+        </button>
+
+        <button class="room-card" onclick="showSection('draw')">
+          <div class="room-icon">🎨</div>
+          <h3>DRAW.EXE</h3>
+          <span>CREW ART</span>
+        </button>
+
+        <button class="room-card" onclick="showSection('secret')">
+          <div class="room-icon">🔐</div>
+          <h3>SECRET HUNT</h3>
+          <span>CLASSIFIED</span>
+        </button>
+
+        <button class="room-card" onclick="showSection('void')">
+          <div class="room-icon">🕳️</div>
+          <h3>THE VOID</h3>
+          <span>UNKNOWN</span>
+        </button>
+
+        <button class="room-card" onclick="showSection('night')">
+          <div class="room-icon">🌙</div>
+          <h3>NIGHT DRIVE</h3>
+          <span>NIGHT MODE</span>
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= CHAT ================= -->
+    <section id="chat" class="page">
+
+      <div class="section-heading">
+        <div class="eyebrow">COMMUNICATION SYSTEM</div>
+        <h2>CREW CHAT</h2>
+        <p>Say something chaotic.</p>
+      </div>
+
+      <div class="chat-box">
+
+        <div id="chatMessages" class="chat-messages">
+          <div class="message">
+            <strong>Deepika</strong>
+            <span>System online. 👑</span>
+          </div>
+
+          <div class="message">
+            <strong>Yashika</strong>
+            <span>Who activated this thing? 🧨</span>
+          </div>
+
+          <div class="message">
+            <strong>Dora</strong>
+            <span>🐻💀</span>
+          </div>
+        </div>
+
+        <div class="chat-controls">
+
+          <input
+            id="chatInput"
+            type="text"
+            placeholder="Type a chaos message..."
+            onkeydown="if(event.key==='Enter') sendMessage()"
+          >
+
+          <button onclick="sendMessage()">SEND</button>
+
+        </div>
+
+        <div class="reaction-row">
+          <button onclick="quickReaction('💀')">💀</button>
+          <button onclick="quickReaction('🔥')">🔥</button>
+          <button onclick="quickReaction('😭')">😭</button>
+          <button onclick="quickReaction('👀')">👀</button>
+          <button onclick="quickReaction('🗿')">🗿</button>
+          <button onclick="quickReaction('😂')">😂</button>
+          <button onclick="quickReaction('👑')">👑</button>
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= WALL ================= -->
+    <section id="wall" class="page">
+
+      <div class="section-heading">
+        <div class="eyebrow">MEMORY DATABASE</div>
+        <h2>CREW WALL</h2>
+        <p>Posts, memories and absolute nonsense.</p>
+      </div>
+
+      <div class="post-maker">
+
+        <textarea
+          id="postInput"
+          placeholder="Drop something on the wall..."
+        ></textarea>
+
+        <button onclick="createPost()">
+          POST TO CREW WALL
+        </button>
+
+      </div>
+
+      <div id="wallPosts" class="wall-posts"></div>
+
+    </section>
+
+
+
+    <!-- ================= GAMES ================= -->
+    <section id="games" class="page">
+
+      <div class="section-heading">
+        <div class="eyebrow">GAME DATABASE</div>
+        <h2>GAME ZONE</h2>
+        <p>Choose your chaos.</p>
+      </div>
+
+
+      <div class="game-grid">
+
+        <button onclick="guessFriend()">
+          🎯
+          <strong>GUESS THE FRIEND</strong>
+          <span>Who is this?</span>
+        </button>
+
+        <button onclick="mostLikely()">
+          👀
+          <strong>MOST LIKELY</strong>
+          <span>Who would do it?</span>
+        </button>
+
+        <button onclick="scrambleGame()">
+          🔤
+          <strong>NAME SCRAMBLE</strong>
+          <span>Decode the crew member</span>
+        </button>
+
+        <button onclick="reactionGame()">
+          ⚡
+          <strong>REACTION WAR</strong>
+          <span>Test your reflexes</span>
+        </button>
+
+        <button onclick="randomChaos()">
+          🎲
+          <strong>CHAOS GENERATOR</strong>
+          <span>Random event</span>
+        </button>
+
+        <button onclick="secretCode()">
+          🔐
+          <strong>SECRET CODE</strong>
+          <span>Crack the system</span>
+        </button>
+
+      </div>
+
+
+      <div class="game-console">
+
+        <div class="console-label">
+          GAME CONSOLE
+        </div>
+
+        <div id="gameOutput">
+          Select a game to begin.
+        </div>
+
+        <div id="gameScore">
+          SCORE: 0
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= BATTLE ================= -->
+    <section id="battle" class="page">
+
+      <div class="section-heading">
+        <div class="eyebrow">COMBAT SIMULATOR</div>
+        <h2>CHAOS ARENA</h2>
+        <p>Harmless arcade-style crew battles.</p>
+      </div>
+
+
+      <div class="battle-select">
+
+        <select id="fighterOne">
+          <option value="Deepika">Deepika</option>
+          <option value="Yashika">Yashika</option>
+          <option value="Mariya">Mariya</option>
+          <option value="Bro">Bro</option>
+          <option value="Dora">Dora</option>
+        </select>
+
+        <div class="vs">VS</div>
+
+        <select id="fighterTwo">
+          <option value="Yashika">Yashika</option>
+          <option value="Deepika">Deepika</option>
+          <option value="Mariya">Mariya</option>
+          <option value="Bro">Bro</option>
+          <option value="Dora">Dora</option>
+        </select>
+
+      </div>
+
+
+      <button class="primary-btn" onclick="startBattle()">
+        START CHAOS BATTLE
+      </button>
+
+
+      <div class="battle-arena">
+
+        <div class="fighter">
+          <div id="fighterOneName">DEEPIKA</div>
+          <div class="energy">
+            <div id="energyOne"></div>
+          </div>
+        </div>
+
+        <div class="battle-vs">⚡</div>
+
+        <div class="fighter">
+          <div id="fighterTwoName">YASHIKA</div>
+          <div class="energy">
+            <div id="energyTwo"></div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div id="battleResult" class="battle-result">
+        READY...
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= CHALLENGE ================= -->
+    <section id="challenge" class="page">
+
+      <div class="section-heading">
+        <div class="eyebrow">CHALLENGE SYSTEM</div>
+        <h2>CHALLENGE ARENA</h2>
+        <p>Complete a random challenge.</p>
+      </div>
+
+
+      <div class="challenge-box">
+
+        <div id="challengeText">
+          Press the button to generate a challenge.
+        </div>
+
+        <div id="challengeTimer">
+          10
+        </div>
+
+        <button onclick="generateChallenge()">
+          GENERATE CHALLENGE
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= VOICE ================= -->
+    <section id="voice" class="page">
+
+      <div class="section-heading">
+        <div class="eyebrow">VOICE SYSTEM</div>
+        <h2>VOICE.EXE</h2>
+        <p>Mic permission demo for the crew.</p>
+      </div>
+
+
+      <div class="voice-panel">
+
+        <div id="micStatus">
+          MICROPHONE: OFF
+        </div>
+
+        <button onclick="requestMic()">
+          🎙️ ENABLE MICROPHONE
+        </button>
+
+        <button onclick="voiceReaction('👋')">
+          👋
+        </button>
+
+        <button onclick="voiceReaction('😂')">
+          😂
+        </button>
+
+        <button onclick="voiceReaction('🔥')">
+          🔥
+        </button>
+
+      </div>
+
+      <p class="small-note">
+        Live multi-person voice requires a real-time WebRTC/backend system.
+      </p>
+
+    </section>
+
+
+
+    <!-- ================= CREW FM ================= -->
+    <section id="fm" class="page">
+
+      <div class="section-heading">
+        <div class="eyebrow">AUDIO SYSTEM</div>
+        <h2>CREW FM</h2>
+        <p>Your inner-circle soundtrack.</p>
+      </div>
+
+
+      <div class="music-player">
+
+        <div class="album-art">
+          🎵
+        </div>
+
+        <div class="song-info">
+
+          <div id="songTitle">
+            CHAOS SYNDICATE RADIO
+          </div>
+
+          <div id="songArtist">
+            CREW FM
+          </div>
+
+        </div>
+
+        <audio id="audioPlayer" controls></audio>
+
+        <div class="music-buttons">
+          <button onclick="previousSong()">⏮</button>
+          <button onclick="toggleMusic()">▶ / ⏸</button>
+          <button onclick="nextSong()">⏭</button>
+        </div>
+
+      </div>
+
+
+      <div class="playlist">
+
+        <button onclick="loadSong(0)">
+          🎵 Women
+        </button>
+
+        <button onclick="loadSong(1)">
+          🎵 Aarzu
+        </button>
+
+        <button onclick="loadSong(2)">
+          🎵 Jaat
+        </button>
+
+      </div>
+
+
+      <label class="upload-music">
+        ADD LOCAL MUSIC
+        <input
+          type="file"
+          accept="audio/*"
+          onchange="addLocalMusic(event)"
+        >
+      </label>
+
+      <p class="small-note">
+        Add music files that you have permission to use.
+      </p>
+
+    </section>
+
+
+
+    <!-- ================= CAMERA ================= -->
+    <section id="camera" class="page">
+
+      <div class="section-heading">
+        <div class="eyebrow">VISUAL LAB</div>
+        <h2>CAM.EXE</h2>
+        <p>Camera filters processed locally.</p>
+      </div>
+
+
+      <div class="camera-box">
+
+        <video
+          id="cameraVideo"
+          autoplay
+          playsinline
+        ></video>
+
+        <div class="camera-controls">
+
+          <button onclick="startCamera()">
+            📷 START CAMERA
+          </button>
+
+          <button onclick="cameraFilter('glitch')">
+            GLITCH
+          </button>
+
+          <button onclick="cameraFilter('dream')">
+            DREAM
+          </button>
+
+          <button onclick="cameraFilter('matrix')">
+            MATRIX
+          </button>
+
+          <button onclick="cameraFilter('royal')">
+            ROYAL
+          </button>
+
+          <button onclick="cameraFilter('chaos')">
+            CHAOS
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= DRAW ================= -->
+    <section id="draw" class="page">
+
+      <div class="section-heading">
+        <div class="eyebrow">ART SYSTEM</div>
+        <h2>DRAW.EXE</h2>
+        <p>Crew drawing battle.</p>
+      </div>
+
+
+      <div class="draw-panel">
+
+        <canvas id="drawCanvas" width="800" height="450"></canvas>
+
+        <div class="draw-controls">
+
+          <button onclick="clearCanvas()">
+            CLEAR
+          </button>
+
+          <button onclick="randomDrawWord()">
+            RANDOM WORD
+          </button>
+
+          <button onclick="saveDrawing()">
+            SAVE ART
+          </button>
+
+        </div>
+
+        <div id="drawWord">
+          WORD: ???
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= SECRET ================= -->
+    <section id="secret" class="page">
+
+      <div class="section-heading">
+        <div class="eyebrow">CLASSIFIED DATABASE</div>
+        <h2>SECRET HUNT</h2>
+        <p>There are secrets hidden around the system.</p>
